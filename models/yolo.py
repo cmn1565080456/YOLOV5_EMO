@@ -6,7 +6,7 @@ Usage:
     $ python models/yolo.py --cfg yolov5s.yaml
 """
 
-import time
+import timm
 import argparse
 import contextlib
 import os
@@ -365,9 +365,9 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
             t = m
             m = timm.create_model(m, pretrained=args[0], features_only=True)
             c2 = m.feature_info.channels()
-        # elif m in {}:
-        #     m = m(*args)
-        #     c2 = m.channel
+        elif m in {EMO_1M,EMO_2M,EMO_5M,EMO_6M}:
+            m = m(*args)
+            c2 = m.channel
         else:
             c2 = ch[f]
         if isinstance(c2, list):
