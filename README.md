@@ -1,0 +1,2 @@
+# YOLOV5_EMO
+这个项目是对YOLOV5使用EMO层进行轻量级改进，使用transformer对模型结构于运算进度进行提高
